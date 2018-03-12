@@ -1,4 +1,4 @@
-# Rails + Mongo Development Environment Using Docker
+# Docker-Compose Examples for Rails Development
 
 ## Prerequisites
 
@@ -6,6 +6,14 @@
 1. Optional: [Install Guard](https://github.com/guard/guard#installation), using `docker-compose run --rm test bundle exec guard init` to generate an empty `Guardfile`.
 
 ## Usage
+
+### Install or update gems
+
+Every time the `Gemfile` is updated, re-build the containers:
+
+```
+docker-compose build
+```
 
 ### Start the app
 

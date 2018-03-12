@@ -23,10 +23,3 @@ ENV BUNDLE_PATH /bundler
 RUN bundle install
 
 ENV WEB_CONSOLE_IP '172.18.0.0/12'
-
-RUN mongo --version
-RUN nodejs --version
-RUN npm --version
-RUN phantomjs -v
-RUN rails --version
-RUN ruby -v
