@@ -5,7 +5,9 @@ services:
     command: bundle exec rails server --port 3000 --binding 0.0.0.0
     container_name: my-rails-app
     depends_on:
+    - es
     - mongo
+    - redis
     env_file:
     - .docker-development.env
     ports:
@@ -15,6 +17,11 @@ services:
     volumes:
       - bundled_gems:/bundler
       - .:/var/app
+
+  es:
+    image: elasticsearch:latest
+    ports:
+    - "9200:9200"
 
   mongo:
     image: mongo:latest
@@ -29,12 +36,19 @@ services:
     expose:
       - "27017"
 
+  redis:
+    image: redis:latest
+    expose:
+    - "6379"
+
   test:
     build: .
     command: bundle exec guard start --no-bundler-warning --no-interactions
     container_name: my-rails-test
     depends_on:
+    - es
     - mongotest
+    - redis
     env_file:
     - .docker-test.env
     stdin_open: true
