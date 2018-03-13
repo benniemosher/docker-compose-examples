@@ -15,7 +15,6 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - bundled_gems:/bundler
       - .:/var/app
 
   es:
@@ -48,9 +47,7 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - bundled_gems:/bundler
       - .:/var/app
 
 volumes:
-  bundled_gems:
   pg_data:

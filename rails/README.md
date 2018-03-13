@@ -28,28 +28,8 @@ Now you should be able to see the app running locally at http://localhost:3000/.
 
 ### Run tests
 
-To run the entire test suite:
-
 ```
 docker-compose run --rm test bundle exec rspec
-```
-
-To run a single test file:
-
-```
-docker-compose run --rm test bundle exec rspec spec/unit/model_spec.rb
-```
-
-To run a single example in a single test file:
-
-```
-docker-compose run --rm test bundle exec rspec spec/unit/model_spec.rb -e 'some string or substring of the example you want to run'
-```
-
-**OR**
-
-```
-docker-compose run --rm test bundle exec rspec spec/unit/model_spec.rb:{LINE NUMBER}
 ```
 
 ### Use the Rails console
