@@ -13,14 +13,14 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - .:/var/app
+    - .:/var/app
 
   postgres:
     image: postgres
     ports:
-      - "5432:5432"
+    - "5432:5432"
     volumes:
-      - pg_data:/var/lib/postgresql/data
+    - pg_data:/var/lib/postgresql/data
 
   test:
     build: .
@@ -33,7 +33,7 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - .:/var/app
+    - .:/var/app
 
 volumes:
   pg_data:

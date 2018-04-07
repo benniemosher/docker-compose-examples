@@ -1,0 +1,13 @@
+{
+  "name": "my_node_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha",
+    "watch": "mocha --watch"
+  },
+  "author": "",
+  "license": "ISC"
+}

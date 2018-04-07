@@ -1,0 +1,21 @@
+version: '3'
+services:
+  app:
+    build: .
+    command: npm start
+    env_file:
+    - .docker-development.env
+    stdin_open: true
+    tty: true
+    volumes:
+    - .:/var/app
+
+  test:
+    build: .
+    command: npm run watch
+    env_file:
+    - .docker-test.env
+    stdin_open: true
+    tty: true
+    volumes:
+    - .:/var/app

@@ -13,7 +13,7 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - .:/var/app
+    - .:/var/app
 
   mongo:
     image: mongo:latest
@@ -26,7 +26,7 @@ services:
     image: mongo:latest
     command: mongod --storageEngine ephemeralForTest
     expose:
-      - "27017"
+    - "27017"
 
   test:
     build: .
@@ -39,7 +39,7 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - .:/var/app
+    - .:/var/app
 
 volumes:
   mongo_data:

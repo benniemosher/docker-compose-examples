@@ -10,16 +10,11 @@ RUN npm install -g phantomjs-prebuilt --unsafe-perm
 RUN apt-get autoremove -yq && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # use /var/app as our working directory
-ENV RAILS_APP_PATH /var/app
-RUN mkdir $RAILS_APP_PATH
-WORKDIR $RAILS_APP_PATH
+WORKDIR /var/app
 
 # copy the Gemfile into the container
-COPY Gemfile $RAILS_APP_PATH/Gemfile
-COPY Gemfile.lock $RAILS_APP_PATH/Gemfile.lock
+COPY Gemfile .
+COPY Gemfile.lock .
 
 # install the gems (re-run `docker-compose build` when the Gemfile is changed)
-ENV BUNDLE_PATH /bundler
-RUN bundle install
-
-ENV WEB_CONSOLE_IP '172.18.0.0/12'
+RUN bundle
